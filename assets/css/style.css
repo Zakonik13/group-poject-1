@@ -1,9 +1,8 @@
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
-html,
 body {
     height: 100vw;
 }
@@ -11,13 +10,14 @@ body {
 header {
     background-color: #727272;
     color: #ffffff;
-    text-shadow: 2px 2px rgb(29, 29, 29);
-    height: 15%;
+    text-shadow: 2px 2px #1d1d1d;
+    height: 8%;
     text-align: center;
 }
 
-header h1 {
-    padding-top: 1%;
+h1 {
+    margin: 0%;
+    padding: 1%;
 }
 
 main {
@@ -41,20 +41,23 @@ main {
     flex-wrap: wrap;
     justify-content: center;
 }
-.poster{
-    width: 350px;
-    height: 350px;
+
+.poster {
+    width: 275px;
+    height: 275px;
     padding: 10px;
     border-radius: 10px;
     transition: transform .2s ease-in-out;
     position: relative;
 }
-.poster:hover{
+
+.poster:hover {
     transform: scale(1.03);
-    -webkit-box-shadow: 0px 3px 10px 0px rgba(184, 223, 255, 0.69); 
-    box-shadow: 0px 3px 10px 0px rgba(184, 223, 255, 0.69);
+    -webkit-box-shadow: 0px 3px 10px 0px #b8dfffb0; 
+    box-shadow: 0px 3px 10px 0px #b8dfffb0;
 }
-img{
+
+img {
     width: 100%;
     height: 100%;
     object-fit: center;
