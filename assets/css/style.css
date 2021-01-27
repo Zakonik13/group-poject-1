@@ -5,7 +5,7 @@
 
 html,
 body {
-    height: 100%;
+    height: 100vw;
 }
 
 header {
@@ -22,6 +22,7 @@ header h1 {
 
 main {
     height: 100%;
+  
 }
 
 .row {
@@ -36,4 +37,26 @@ main {
 .right {
     background-color: #eeeded;
     height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.poster{
+    width: 350px;
+    height: 350px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform .2s ease-in-out;
+    position: relative;
+}
+.poster:hover{
+    transform: scale(1.03);
+    -webkit-box-shadow: 0px 3px 10px 0px rgba(184, 223, 255, 0.69); 
+    box-shadow: 0px 3px 10px 0px rgba(184, 223, 255, 0.69);
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: center;
+    border-radius: 10px;
 }
