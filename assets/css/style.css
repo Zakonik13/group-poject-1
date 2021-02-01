@@ -7,10 +7,11 @@
 body {
     height: 100vw;
     overflow-x: hidden;
+    background-color: black;
 }
 
 header {
-    background-color: #727272;
+    background-color: #971818;
     color: #ffffff;
     /* text-shadow: 2px 2px #1d1d1d; */
     height: 13%;
@@ -21,7 +22,9 @@ h1 {
     margin: 0%;
     padding: 1%;
     font-size: 70px;
-    text-shadow: 10px 10px 10px #000, 3px 3px 5px black;
+    font-family: cambria;
+    text-shadow: 10px 10px 10px rgb(201, 189, 189), 3px 3px 5px black;
+    color: black;
 }
 
 a {
@@ -43,6 +46,8 @@ main {
     width: 100vw;
     height: 100vh;
 }
+
+
 
 .row {
     height: 100%;
