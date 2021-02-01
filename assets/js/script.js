@@ -28,6 +28,7 @@ const fetchApi = () => {
 
         }).catch(error => {
             movieContainer.textContent = 'No Searches found...';
+            return error;
         })
 
     // clear movie container
