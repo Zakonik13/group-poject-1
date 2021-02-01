@@ -2,7 +2,8 @@
 const form = document.querySelector('.modal-form');
 const searchInput = document.querySelector('#text-input');
 const movieContainer = document.querySelector('.movies');
-
+const image = document.querySelector('.image');
+const movieOverview = document.querySelector('.movie-overview');
 
 // fetch request
 const fetchApi = () => {
@@ -25,8 +26,11 @@ const fetchApi = () => {
                 if (movie.poster_path) {
 
                     imageSection(movie);
+
                 }
+
             });
+
 
         }).catch(error => {
             movieContainer.textContent = 'No Searches found...';
@@ -40,7 +44,7 @@ const fetchApi = () => {
 }
 
 // movie posters
-function imageSection(movie, search) {
+function imageSection(movie) {
     const imageContainer = document.createElement('a');
     // add a class
     imageContainer.classList.add('poster');
@@ -57,37 +61,75 @@ function imageSection(movie, search) {
     imageContainer.appendChild(img);
     // append image conatiner to movie container
     movieContainer.appendChild(imageContainer);
-    // displayModal(imageContainer);
-
+    // show modal
+    displayModal(imageContainer);
+    // make poster clickable
     imageContainer.addEventListener('click', () => {
         let movieTitle = movie.title;
         getVideo(movieTitle);
-        console.log(movieTitle);
+        modalImage(posters);
+
+        // grab movie overview
+        const movie_Overview = movie.overview;
+        movieOverview.innerHTML = movie_Overview;
+
     });
 
 }
+
+// modal image
+function modalImage(poster) {
+    // clear out img for next image
+    image.textContent = '';
+    // create a img element for movie poster
+    const img = document.createElement('img');
+    img.classList.add('modal-image');
+    img.setAttribute('src', `https://image.tmdb.org/t/p/w500/${poster}`);
+
+    // append img to image
+    image.appendChild(img);
+}
+
+// show modal
+function displayModal(image) {
+    image.addEventListener('click', () => {
+        const modalContainer = document.querySelector('.modal-container');
+        modalContainer.classList.remove('hide');
+    });
+
+}
+
+// close modal
+function closeModal() {
+    const modalContainer = document.querySelector('.modal-container');
+    const btn = document.querySelector('#btn-close');
+    btn.addEventListener('click', function () {
+        modalContainer.classList.add('hide')
+    });
+}
+closeModal();
 
 //get video from youtube
 function getVideo(search) {
     const API_KEY = 'AIzaSyCRTf7HPvvpO0-iXxO9hCUGaA0B19DJBz4';
     const URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1';
 
-    const videoContainer = document.querySelector('#my-modal');
+    const videoContainer = document.querySelector('.video');
     fetch(`${URL}&q=${search}&key=${API_KEY}`)
         .then(res => res.json())
         .then(data => {
 
             // video id
             const video_Id = data.items[0].id.videoId;
-            console.log(video_Id)
-
             let output = `
-            <iframe width="400" height="315" src="https://www.youtube.com/embed/${video_Id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            `
+                <iframe width="400" height="315" src="https://www.youtube.com/embed/${video_Id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                `
             videoContainer.innerHTML += output;
+
         }).catch(error => alert('No trailer found', error));
 
-
+    // clear out video container for the next movie
+    videoContainer.textContent = '';
 }
 
 
