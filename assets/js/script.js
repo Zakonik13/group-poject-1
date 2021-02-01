@@ -1,11 +1,13 @@
 // grab UI elements
-const form = document.querySelector('.form');
+const form = document.querySelector('.modal-form');
 const searchInput = document.querySelector('#text-input');
-const movieContainer = document.querySelector('.right');
+const movieContainer = document.querySelector('.movies');
 
 
 // fetch request
 const fetchApi = () => {
+    // Closes modal after "Go" is pressed
+    modal.style.display = "none";
     // get input value
     const searchValue = searchInput.value;
 
@@ -57,11 +59,28 @@ function imageSection(movie) {
 
 }
 
+// TESTING
+let modal = document.getElementById("my-modal");
+let btnOpen = document.getElementById("btn1");
+let btnClose = document.getElementById("close-modal");
+
+btnOpen.onclick = function() {
+    modal.style.display = "block";
+}
+
+btnClose.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+//TESTING END
+
 // add event listeners
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     fetchApi();
 });
-
-
-
