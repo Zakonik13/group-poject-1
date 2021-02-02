@@ -90,7 +90,7 @@ img {
     justify-content: center;
 }
 
-/* Test */
+/* Search Modal */
 .modal {
     display: none;
     position: fixed;
@@ -119,11 +119,30 @@ img {
     color: #ffffff;
 }
 
+#submit-form {
+    background-color: #c9c9c9;
+    text-shadow: 1px 1px 1px #00000066;
+    color: #000000;
+    width: 10%;
+    height: 50%;
+}
+
+#submit-form:hover {
+    cursor: pointer;
+    color: #5c9457;
+}
+
 .close-modal {
-    color: #aaa;
+    background-color: #a1a1a1;
+    color: #535353;
     float: right;
-    font-size: 28px;
+    font-size: 15px;
+    height: 15px;
+    width: 15px;
     font-weight: bold;
+    margin-right: 26%;
+    margin-top: 1%;
+    padding: 0 12px 18px 5px;
 }
 
 .close-modal:hover,
@@ -132,7 +151,7 @@ img {
     text-decoration: none;
     cursor: pointer;
 }
-  /* Test End */
+  /* Search Modal End */
 
 /* video modal */
 .modal-container{
