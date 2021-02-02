@@ -11,8 +11,9 @@ body {
     position: relative;
 }
 
-header {
+header { 
     background-color: #971818;
+    background-image: url('../images/galaxy.jpg');
     color: #ffffff;
     /* text-shadow: 2px 2px #1d1d1d; */
     height: 13%;
@@ -23,9 +24,13 @@ h1 {
     margin: 0%;
     padding: 1%;
     font-size: 70px;
-    font-family: cambria;
-    text-shadow: 10px 10px 10px rgb(201, 189, 189), 3px 3px 5px black;
-    color: black;
+    font-family: ;
+    text-shadow: 10px 10px 10px rgb(0, 0, 0), 3px 3px 5px black;
+    color: rgb(126, 32, 155);
+}
+
+h4 {
+    font-family: ;
 }
 
 .btn1 {
@@ -37,6 +42,7 @@ h1 {
     margin-left: 2%;
     padding-top: 1%;
     width: 0%;
+    font-family: cambria;
 }
 
 .btn1:hover {
