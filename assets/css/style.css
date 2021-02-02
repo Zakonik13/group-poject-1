@@ -15,12 +15,13 @@ body {
  /* // background header */
 
 header { 
-    background-color: #971818;
+    background-color: #3250b4;
     background-image: url('../images/galaxy.jpg');
     color: #ffffff;
     /* text-shadow: 2px 2px #1d1d1d; */
     height: 13%;
     text-align: center;
+    border-bottom: solid thin white;
 }
 
 h1 {
@@ -28,7 +29,7 @@ h1 {
     padding: 1%;
     font-size: 70px;
     text-shadow: 10px 10px 10px rgb(0, 0, 0), 3px 3px 5px black;
-    color: rgb(126, 32, 155);
+    color: #7e209b;
 }
 
 
@@ -46,7 +47,7 @@ h1 {
 }
 
 .btn1:hover {
-    color: #ff0000;
+    color: #7e209b;
 }
 
 main {
@@ -100,7 +101,7 @@ img {
     right: 0;
     overflow: visible;
     background-color: #1ae245;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(49, 34, 104, 0.5);
     padding-bottom: 1000px;
     width: 100%;
     will-change: top, opacity;
