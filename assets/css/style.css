@@ -11,6 +11,8 @@ body {
     position: relative;
 }
 
+ /* // background header */
+
 header { 
     background-color: #971818;
     background-image: url('../images/galaxy.jpg');
