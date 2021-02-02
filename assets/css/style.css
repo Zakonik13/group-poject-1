@@ -9,6 +9,7 @@ body {
     overflow-x: hidden;
     background-color: black;
     position: relative;
+
 }
 
  /* // background header */
@@ -26,14 +27,12 @@ h1 {
     margin: 0%;
     padding: 1%;
     font-size: 70px;
-    font-family: ;
+    
     text-shadow: 10px 10px 10px rgb(0, 0, 0), 3px 3px 5px black;
     color: rgb(126, 32, 155);
 }
 
-h4 {
-    font-family: ;
-}
+
 
 .btn1 {
     display: flex;
