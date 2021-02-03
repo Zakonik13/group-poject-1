@@ -9,11 +9,17 @@ body {
     overflow-x: hidden;
     background-color: black;
     position: relative;
+
 }
 
 header { 
+
+    background-color: #971818;
+    background-image: url('../images/galaxy.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     background-color: #3250b4;
-    background-image: url('../Images/galaxy.jpg');
+
     color: #ffffff;
     /* text-shadow: 2px 2px #1d1d1d; */
     height: 13%;
@@ -52,6 +58,7 @@ main {
 
 .row {
     height: 100%;
+    
 }
 
 .poster {
@@ -195,6 +202,7 @@ img {
 .video{
     width: 100%;
 }
+
 iframe{
     width: 100%;
     border-radius: 10px;
