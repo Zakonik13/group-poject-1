@@ -18,7 +18,7 @@ header {
     background-color: #3250b4;
     color: #ffffff;
     /* text-shadow: 2px 2px #1d1d1d; */
-    height: 13%;
+    height: 250px;
     text-align: center;
     border-bottom: solid thin white;
 }
@@ -220,4 +220,45 @@ iframe{
 
 .movies {
     background-color: black;
+}
+
+
+/* media queries */
+
+@media screen and (max-width: 1000px){
+    header{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .Cambria{
+        width: 100%;
+        height: auto;
+    }
+    .btn1{
+     
+        justify-content: center;
+        
+    }
+    .modal-form{
+        width: 90%;
+    }
+    .modal div .close-modal{
+        margin-right: 30px;
+    }
+}
+@media screen and (max-width: 990px){
+    .modal-container{
+        height: 100vh;
+    }
+    .modal-contents{
+      width: 800px;
+      height: auto;
+      flex-direction: column;
+      margin-top: 20%;
+    }
+    .image{
+       display: none;
+    } 
 }
