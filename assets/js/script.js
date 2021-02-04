@@ -5,6 +5,24 @@ const movieContainer = document.querySelector('.movies');
 const image = document.querySelector('.image');
 const movieOverview = document.querySelector('.movie-overview');
 
+
+// display popular movies when page loads
+window.addEventListener('DOMContentLoaded', () => {
+
+    const API_KEY = '4fb1298fc0a39cf1bc75ce5b8dbaca5d';
+    const URL = 'https://api.themoviedb.org/3/movie/popular?';
+
+    // make fetch request
+    fetch(`${URL}&api_key=${API_KEY}&language=en-US&page=1`)
+        .then(res => res.json())
+        .then(data => {
+            data.results.map(movie => {
+                imageSection(movie);
+            });
+        });
+
+});
+
 // fetch request
 const fetchApi = () => {
     // Closes modal after "Go" is pressed
@@ -76,6 +94,7 @@ function imageSection(movie) {
     });
 
 }
+
 
 // modal image
 function modalImage(poster) {
