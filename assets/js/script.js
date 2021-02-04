@@ -4,7 +4,8 @@ const searchInput = document.querySelector('#text-input');
 const movieContainer = document.querySelector('.movies');
 const image = document.querySelector('.image');
 const movieOverview = document.querySelector('.movie-overview');
-
+let droplist = document.querySelector(".drop-content");
+let historyArray = [];
 
 // display popular movies when page loads
 window.addEventListener('DOMContentLoaded', () => {
@@ -20,21 +21,41 @@ window.addEventListener('DOMContentLoaded', () => {
                 imageSection(movie);
             });
         });
-
 });
 
 // fetch request
-const fetchApi = () => {
+const fetchApi = (anchor) => {
+    // Clears previous search, prevent duplicating
+    droplist.innerHTML = "";
     // Closes modal after "Go" is pressed
     modal.style.display = "none";
     // get input value
     const searchValue = searchInput.value;
-
+    getHistory(searchValue);
     const API_KEY = '4fb1298fc0a39cf1bc75ce5b8dbaca5d';
     const URL = 'https://api.themoviedb.org/3/search/movie?';
 
-    // make fetch request
+    // make fetch request, search modal
+    if (searchValue) {
     fetch(`${URL}&api_key=${API_KEY}&query=${searchValue}`)
+        .then(res => res.json())
+        .then(data => {
+            
+            // generate a new array from the old array
+            data.results.map(movie => {
+                // check for poster path with value of null
+                if (movie.poster_path) {
+                    imageSection(movie);
+                }
+            });
+
+        }).catch(error => {
+            movieContainer.textContent = 'No Searches found...';
+            return error;
+        })
+    // make fetch request, search history dropdown
+    } else if (anchor) {
+        fetch(`${URL}&api_key=${API_KEY}&query=${anchor}`)
         .then(res => res.json())
         .then(data => {
 
@@ -42,18 +63,15 @@ const fetchApi = () => {
             data.results.map(movie => {
                 // check for poster path with value of null
                 if (movie.poster_path) {
-
                     imageSection(movie);
-
                 }
-
             });
-
 
         }).catch(error => {
             movieContainer.textContent = 'No Searches found...';
             return error;
         })
+    }
 
     // clear movie container
     movieContainer.textContent = '';
@@ -90,9 +108,7 @@ function imageSection(movie) {
         // grab movie overview
         const movie_Overview = movie.overview;
         movieOverview.innerHTML = movie_Overview;
-
     });
-
 }
 
 
@@ -115,7 +131,6 @@ function displayModal(image) {
         const modalContainer = document.querySelector('.modal-container');
         modalContainer.classList.remove('hide');
     });
-
 }
 
 // close modal
@@ -151,8 +166,7 @@ function getVideo(search) {
     videoContainer.textContent = '';
 }
 
-
-// TESTING
+// Search Modal
 let modal = document.getElementById("my-modal");
 let btnOpen = document.getElementById("btn1");
 let btnClose = document.getElementById("close-modal");
@@ -170,7 +184,38 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
-//TESTING END
+//Search Modal END
+
+// Capture search history from modal
+function getHistory(searchValue) {
+    console.log(searchValue)
+    
+    historyArray.push(searchValue);
+    localStorage.setItem("searched", JSON.stringify(historyArray));
+    
+    console.log(historyArray);
+    showHistory();
+}
+
+function showHistory() {
+    let history = JSON.parse(localStorage.getItem("searched")) || [];
+
+    for (i = 0; i < history.length; i++) {
+
+        if (history[i]) {
+            newEl = document.createElement("a");
+            newEl.setAttribute('class', `a-hover`);
+            newEl.innerHTML = history[i] + "<br>";
+            droplist.appendChild(newEl);
+            
+            newEl.addEventListener("click", function () {
+                droplist.innerHTML = "";
+                let anchor = event.target.textContent;
+                fetchApi(anchor);
+            })
+        }
+    }
+}
 
 // add event listeners
 form.addEventListener('submit', (e) => {
