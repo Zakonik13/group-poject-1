@@ -16,4 +16,4 @@ When "Dark Mode" selected the screen toggles between light and dark color themes
 ### Results:
 https://zakonik13.github.io/group-project-1/
 
-![Picture alt](https://www.webpagescreenshot.info/image-url/j7hBwnyk0 "Movie Website")
+![Picture alt](https://www.webpagescreenshot.info/image-url/l_-oQPNYi "Movie Website")
