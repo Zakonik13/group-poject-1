@@ -223,13 +223,13 @@ const btn = document.querySelector(".btn-toggle");
 // Add Event Listener
 btn.addEventListener("click", function() {
     var dark = document.body.classList.toggle("dark-theme");
+    
     if (!dark) {
         btn.innerHTML = "On";
-    } else {btn.innerHTML = "Off";
-}
+    } else {
+        btn.innerHTML = "Off";
+    }
 }) 
-
-
 
 // add event listeners
 form.addEventListener('submit', (e) => {
