@@ -15,17 +15,13 @@ body.dark-theme {
     --hdr-txt: #000000;
     --bdy-bkg: #000000;
     --bdy-txt: #ffffff;
-
 }
 
 body.dark-theme header {
     background-image: url('../Images/galaxy.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-
 }
-
-
 
 body {
     height: 100vw;
@@ -51,7 +47,7 @@ h1 {
     padding: 1%;
     font-size: 70px;
     text-shadow: 10px 10px 10px #000000, 3px 3px 5px black;
-    color: #7e209b;
+    color: #b329e9;
     font-family: cambria; 
 }
 
@@ -66,7 +62,7 @@ h1 {
 }
 
 .btn1:hover {
-    color: #7e209b;
+    color: #b329e9;
 }
 
 /* Holds search history content */
@@ -87,7 +83,6 @@ h1 {
 }
 .dropdown:hover .drop-content {
     display: block;
-    
 }
 
 .a-hover:hover {
@@ -135,6 +130,7 @@ img{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: var(--bdy-bkg);
 }
 
 /* Search Modal */
@@ -268,10 +264,6 @@ iframe{
 }
 .imdb a{
     font-size: 1rem;
-}
-
-.movies {
-    background-color: var(--bdy-bkg);
 }
 
 /* media queries */
