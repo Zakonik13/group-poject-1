@@ -37,40 +37,40 @@ const fetchApi = (anchor) => {
 
     // make fetch request, search modal
     if (searchValue) {
-    fetch(`${URL}&api_key=${API_KEY}&query=${searchValue}`)
-        .then(res => res.json())
-        .then(data => {
-            
-            // generate a new array from the old array
-            data.results.map(movie => {
-                // check for poster path with value of null
-                if (movie.poster_path) {
-                    imageSection(movie);
-                }
-            });
+        fetch(`${URL}&api_key=${API_KEY}&query=${searchValue}`)
+            .then(res => res.json())
+            .then(data => {
 
-        }).catch(error => {
-            movieContainer.textContent = 'No Searches found...';
-            return error;
-        })
-    // make fetch request, search history dropdown
+                // generate a new array from the old array
+                data.results.map(movie => {
+                    // check for poster path with value of null
+                    if (movie.poster_path) {
+                        imageSection(movie);
+                    }
+                });
+
+            }).catch(error => {
+                movieContainer.textContent = 'No Searches found...';
+                return error;
+            })
+        // make fetch request, search history dropdown
     } else if (anchor) {
         fetch(`${URL}&api_key=${API_KEY}&query=${anchor}`)
-        .then(res => res.json())
-        .then(data => {
+            .then(res => res.json())
+            .then(data => {
 
-            // generate a new array from the old array
-            data.results.map(movie => {
-                // check for poster path with value of null
-                if (movie.poster_path) {
-                    imageSection(movie);
-                }
-            });
+                // generate a new array from the old array
+                data.results.map(movie => {
+                    // check for poster path with value of null
+                    if (movie.poster_path) {
+                        imageSection(movie);
+                    }
+                });
 
-        }).catch(error => {
-            movieContainer.textContent = 'No Searches found...';
-            return error;
-        })
+            }).catch(error => {
+                movieContainer.textContent = 'No Searches found...';
+                return error;
+            })
     }
 
     // clear movie container
@@ -189,10 +189,10 @@ window.onclick = function (event) {
 // Capture search history from modal
 function getHistory(searchValue) {
     console.log(searchValue)
-    
+
     historyArray.push(searchValue);
     localStorage.setItem("searched", JSON.stringify(historyArray));
-    
+
     console.log(historyArray);
     showHistory();
 }
@@ -207,8 +207,8 @@ function showHistory() {
             newEl.setAttribute('class', `a-hover`);
             newEl.innerHTML = history[i] + "<br>";
             droplist.appendChild(newEl);
-            
-            newEl.addEventListener("click", function () {
+
+            newEl.addEventListener("click", function (event) {
                 droplist.innerHTML = "";
                 let anchor = event.target.textContent;
                 fetchApi(anchor);
