@@ -14,6 +14,7 @@
         <div class="Cambria">
             <h1>Movie Mania!</h1>
 
+
                                 
         </div>
         <!-- Search Bar -->
@@ -24,13 +25,37 @@
         </div>
         <div>
 
+=======
+        </div>
+        <div class="align-header">
+        <!-- Search Modal -->
+            <div class="dropdown">
+                <!-- Modal Trigger -->
+                <a id="btn1" class="btn1" href="#">Search</a>
+                <div class="drop-content show-content"></div>
+            </div>
+            <div>
+                <h6>Dark Mode</h6>
+                <button class="btn-toggle" id="toggler">On</button>
+            </div>
+        </div>
+        <!-- Modal Structure -->
+        <div class="modal" id="my-modal">
+            <div><!-- This div for style only -->
+                <button id="close-modal" class="close-modal">x</button>
+                <form class="modal-form">
+                    <h4>Search:</h4>
+                    <input type="text" placeholder="Search here" id="text-input">
+                    <button type="submit" id="submit-form">Go</button>
+                </form>
+
             </div>
         <!-- END OF Search Bar -->
     </header>
+
     <main>
         <div class="row">
-            <div class="col l12 movies">
-            </div>
+            <div class="col l12 movies"></div>
         </div>
     </main>
 
@@ -57,9 +82,7 @@
                         </div>
                     </div>
                 </figcaption>
-
             </figure>
-
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

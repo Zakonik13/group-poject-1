@@ -219,10 +219,24 @@ btn.addEventListener("click", function() {
     var dark = document.body.classList.toggle("dark-theme");
     
     if (!dark) {
+
         btn.innerHTML = "Dark Mode";
     } else {
         btn.innerHTML = "Light Mode";
     }
 }) 
 
+
+=======
+        btn.innerHTML = "On";
+    } else {
+        btn.innerHTML = "Off";
+    }
+}) 
+
+// add event listeners
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    fetchApi();
+});
 
