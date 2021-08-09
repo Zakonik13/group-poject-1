@@ -1,6 +1,6 @@
 // grab UI elements
-const searchInput = document.querySelector('#search');
-const searchButton = document.querySelector('#submit');
+const form = document.querySelector('.modal-form');
+const searchInput = document.querySelector('#text-input');
 const movieContainer = document.querySelector('.movies');
 const image = document.querySelector('.image');
 const movieOverview = document.querySelector('.movie-overview');
@@ -28,6 +28,7 @@ const fetchApi = (anchor) => {
     // Clears previous search, prevent duplicating
     droplist.innerHTML = "";
     // Closes modal after "Go" is pressed
+    modal.style.display = "none";
     // get input value
     const searchValue = searchInput.value;
     getHistory(searchValue);
@@ -165,7 +166,24 @@ function getVideo(search) {
     videoContainer.textContent = '';
 }
 
+// Search Modal
+let modal = document.getElementById("my-modal");
+let btnOpen = document.getElementById("btn1");
+let btnClose = document.getElementById("close-modal");
 
+btnOpen.onclick = function () {
+    modal.style.display = "block";
+}
+
+btnClose.onclick = function () {
+    modal.style.display = "none";
+}
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 //Search Modal END
 
 // Capture search history from modal
@@ -199,18 +217,6 @@ function showHistory() {
     }
 }
 
-
-document.getElementById("submit").onclick = function() {fetchApi(searchInput.value)};
-
-searchInput.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-    event.preventDefault();
-    document.getElementById("submit").click();
-  }
-});
-
-
-
 // Select Button
 const btn = document.querySelector(".btn-toggle");
 
@@ -219,15 +225,6 @@ btn.addEventListener("click", function() {
     var dark = document.body.classList.toggle("dark-theme");
     
     if (!dark) {
-
-        btn.innerHTML = "Dark Mode";
-    } else {
-        btn.innerHTML = "Light Mode";
-    }
-}) 
-
-
-=======
         btn.innerHTML = "On";
     } else {
         btn.innerHTML = "Off";
@@ -239,4 +236,3 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     fetchApi();
 });
-
